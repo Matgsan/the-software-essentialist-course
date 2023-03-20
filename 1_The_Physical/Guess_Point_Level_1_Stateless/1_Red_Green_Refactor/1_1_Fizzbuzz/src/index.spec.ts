@@ -1,6 +1,14 @@
 import fizzbuzz from './fizzbuzz';
 describe("fizzbuzz", () => {
 
+  it("return error if number is less than 1", () => {
+    expect(() => fizzbuzz(0)).toThrow();
+  });
+
+  it("return error if number is more than 100", () => {
+    expect(() => fizzbuzz(101)).toThrow();
+  });
+
   it("returns a string", () => {
     expect(typeof fizzbuzz(5)).toBe('string');
   });
