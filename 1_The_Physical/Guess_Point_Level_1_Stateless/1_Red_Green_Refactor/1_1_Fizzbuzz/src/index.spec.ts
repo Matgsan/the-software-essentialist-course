@@ -14,7 +14,10 @@ describe("fizzbuzz", () => {
   });
 
   it("returns the number as a string", () => {
-    expect(fizzbuzz(1)).toBe('1');
+    for (let index = 1; index < 100; index++) {
+      if(index % 3 === 0 || index % 5 === 0) continue;
+      expect(fizzbuzz(index)).toBe(index.toString());
+    }
   });
 
   it("returns Fizz for multiples of 3 and not multiples of 5", () => {
@@ -32,9 +35,8 @@ describe("fizzbuzz", () => {
   });
   
   it("returns FizzBuzz for multiples of 3 and 5", () => {
-    for(let i = 3; i < 100; i += 3) {
-      if(i % 3 !== 0 || i % 5 !== 0) continue;
-      expect(fizzbuzz(i)).toBe('FizzBuzz');
+    for(let i = 1; i < 100; i++) {
+      if(i % 3 === 0 && i % 5 === 0) expect(fizzbuzz(i)).toBe('FizzBuzz');
     }
   });
   
